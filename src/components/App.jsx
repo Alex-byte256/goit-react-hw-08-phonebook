@@ -2,16 +2,18 @@ import Contacts from './Contacts/Contacts';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import Registration from './Registration/Registration';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { authOperations, authSelectors } from '../redux/auth';
+import { authOperations } from '../redux/auth';
 import Login from './Login/Login';
 import { fetchContacts } from '../redux/api';
+import HomePage from './HomePage/HomePage';
+import PublicRoute from '../PublicRoute';
+import PrivateRoute from '../PrivateRoute';
 
 
 function  App (){
   const dispatch = useDispatch();
-  const isRefreshing = useSelector(authSelectors.getIsRefreshingUser);
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
@@ -22,9 +24,21 @@ function  App (){
       <div>
         <Routes>
           <Route path="/" element={<Layout/>}>
-                <Route path="/contacts" element={<Contacts/>} />
-                <Route path="/register" element={<Registration/>} />
-                <Route path="/login" element={<Login/>} />
+                <Route index element={<HomePage/>} />
+                <Route path="/contacts" element={<PrivateRoute
+                  redirectTo="/login"
+                  component={<Contacts />}
+                />} />
+                <Route path="/register" element={<PublicRoute
+                  restricted
+                  redirectTo="/contacts"
+                  component={<Registration />}
+                />} />
+                <Route path="/login" element={<PublicRoute
+                  restricted
+                  redirectTo="/contacts"
+                  component={<Login />}
+                />} />
           </Route>
         </Routes>
       </div>
