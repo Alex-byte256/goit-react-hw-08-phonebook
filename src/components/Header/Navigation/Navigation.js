@@ -5,9 +5,9 @@ function Navigation() {
 
   return(
     <div className={css.nav}>
-        <NavLink to="/register">Регістрація</NavLink>
-        <NavLink to="/login">Логін</NavLink>
-        <NavLink to="/contacts">Контакти</NavLink>
+        <NavLink to="goit-react-hw-08-phonebook/register">Регістрація</NavLink>
+        <NavLink to="goit-react-hw-08-phonebook/login">Логін</NavLink>
+        <NavLink to="goit-react-hw-08-phonebook/contacts">Контакти</NavLink>
     </div>
   )
 }
