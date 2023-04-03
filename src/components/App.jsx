@@ -22,16 +22,16 @@ function  App (){
         <Routes>
           <Route path="/goit-react-hw-08-phonebook" element={<Layout/>}>
                 <Route index element={<HomePage/>} />
-                <Route path="/contacts" element={<PrivateRoute
+                <Route path="contacts" element={<PrivateRoute
                   redirectTo="login"
                   component={<Contacts />}
                 />} />
-                <Route path="/register" element={<PublicRoute
+                <Route path="register" element={<PublicRoute
                   restricted
                   redirectTo="/contacts"
                   component={<Registration />}
                 />} />
-                <Route path="/login" element={<PublicRoute
+                <Route path="login" element={<PublicRoute
                   restricted
                   redirectTo="/contacts"
                   component={<Login />}
