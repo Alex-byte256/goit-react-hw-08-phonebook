@@ -28,12 +28,12 @@ function  App (){
                 />} />
                 <Route path="register" element={<PublicRoute
                   restricted
-                  redirectTo="/contacts"
+                  redirectTo="contacts"
                   component={<Registration />}
                 />} />
                 <Route path="login" element={<PublicRoute
                   restricted
-                  redirectTo="/contacts"
+                  redirectTo="contacts"
                   component={<Login />}
                 />} />
           </Route>
