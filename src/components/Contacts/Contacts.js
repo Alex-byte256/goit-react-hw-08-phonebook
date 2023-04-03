@@ -1,13 +1,20 @@
 import ContactForm from '../PhoneBook/ContactForm ';
 import Filter from '../PhoneBook/Filter/Filter';
 import ContactList from '../ContactList/ContactList';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RotatingLines } from 'react-loader-spinner';
+import { useEffect } from 'react';
+import { fetchContacts } from '../../redux/api';
 
 
 
 function  App (){
   const loading = useSelector(state => state.contacts.loading)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts())
+  }, [dispatch]);
 
   return (
     <div>

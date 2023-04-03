@@ -3,7 +3,6 @@ import Layout from './Layout/Layout';
 import { useDispatch } from 'react-redux';
 import { useEffect  , lazy} from 'react';
 import { authOperations } from '../redux/auth';
-import { fetchContacts } from '../redux/api';
 import HomePage from './HomePage/HomePage';
 import PublicRoute from '../PublicRoute';
 import PrivateRoute from '../PrivateRoute';
@@ -16,7 +15,6 @@ function  App (){
 
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
-    dispatch(fetchContacts())
   }, [dispatch]);
 
     return (
