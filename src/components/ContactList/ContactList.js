@@ -19,7 +19,7 @@ function ContactList (){
     return(
       <ul className={css.list}>
         {visibleContacts.map(el => (
-          <li className={css.item} key={el.id}>{el.name} - {el.phone}
+          <li className={css.item} key={el.id}>{el.name} - {el.number}
           <button type='button' onClick={()=> deleteContactU(el.id)}>Delete</button></li>
         ))}
       </ul>

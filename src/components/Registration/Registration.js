@@ -27,6 +27,7 @@ function Registration () {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log({ name, email, password })
     dispatch(authOperations.register({ name, email, password }));
     setName('');
     setEmail('');
@@ -35,10 +36,10 @@ function Registration () {
 
   return(
     <section className={css.section}>
-    <form onChange={handleChange} className={css.form} onSubmit={handleSubmit}>
-      <input type="text" name="name"  placeholder="Name"/>
-      <input type="email" name="email" placeholder="Email" />
-      <input type="password" name="password"  placeholder="Password"/>
+    <form  className={css.form} onSubmit={handleSubmit}>
+      <input onChange={handleChange} value={name} type="text" name="name"  placeholder="Name"/>
+      <input onChange={handleChange} value={email} type="email" name="email" placeholder="Email" />
+      <input onChange={handleChange} value={password} type="password" name="password"  placeholder="Password"/>
       <button type="submit">Регістрація</button>
     </form>
     </section>
