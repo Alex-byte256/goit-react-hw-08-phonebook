@@ -21,7 +21,7 @@ function  App (){
       <Suspense fallback={<div>Loading...</div>}>
       <div>
         <Routes>
-          <Route path="/" element={<Layout/>}>
+          <Route path="/goit-react-hw-08-phonebook/" element={<Layout/>}>
                 <Route index element={<HomePage/>} />
                 <Route path="contacts" element={<PrivateRoute
                   redirectTo="/login"
