@@ -24,17 +24,17 @@ function  App (){
           <Route path="/goit-react-hw-08-phonebook/" element={<Layout/>}>
                 <Route index element={<HomePage/>} />
                 <Route path="contacts" element={<PrivateRoute
-                  redirectTo="/login"
+                  redirectTo="/goit-react-hw-08-phonebook/login"
                   component={<Contacts />}
                 />} />
                 <Route path="register" element={<PublicRoute
                   restricted
-                  redirectTo="/contacts"
+                  redirectTo="/goit-react-hw-08-phonebook/contacts"
                   component={<Registration />}
                 />} />
                 <Route path="login" element={<PublicRoute
                   restricted
-                  redirectTo="/contacts"
+                  redirectTo="/goit-react-hw-08-phonebook/contacts"
                   component={<Login />}
                 />} />
           </Route>
